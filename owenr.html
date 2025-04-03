@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مـديــنـة أبـهـا - Owner Server Abha</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: url('https://cdn.discordapp.com/attachments/1355278507722412234/1357434669385125899/wp4421387.webp?ex=67f0310d&is=67eedf8d&hm=d232dc9320eb37a849c4be2ade53b5b6400bc006e51e5a7d2a1b5f97cf97eb4f&') no-repeat center center/cover;
+            margin: 0;
+            padding: 0;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            margin-top: 50px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        button {
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #e68900;
+        }
+        .owners {
+            display: none;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .owner {
+            text-align: center;
+            flex: 1 1 220px;
+            max-width: 220px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+        }
+        .owner img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 4px solid #ff9800;
+            transition: transform 0.3s;
+        }
+        .owner img:hover {
+            transform: scale(1.1);
+        }
+        .owner p {
+            margin-top: 8px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffcc80;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button onclick="showOwners()">Owner Server Abha</button>
+        <div class="owners" id="owners">
+            <div class="owner">
+                <img src="https://j.top4top.io/p_3378ad7nw1.png" alt="Owner 1">
+                <p>[𝒜-𝟶𝟷] ادم بـن مـحـمـد </p>
+            </div>
+            <div class="owner">
+                <img src="https://j.top4top.io/p_3378ad7nw1.png" alt="Owner 2">
+                <p>[𝒜-𝟶2] خـالـد الـشـريـف</p>
+            </div>
+            <div class="owner">
+                <img src="https://j.top4top.io/p_3378ad7nw1.png" alt="Owner 3">
+                <p> ؟؟؟؟؟؟ </p>
+            </div>
+            <div class="owner">
+                <img src="https://j.top4top.io/p_3378ad7nw1.png" alt="Owner 4">
+                <p> ؟؟؟؟؟؟ </p>
+            </div>
+        </div>
+    </div>
+    <script>
+        function showOwners() {
+            document.getElementById('owners').style.display = 'flex';
+        }
+    </script>
+</body>
+</html>

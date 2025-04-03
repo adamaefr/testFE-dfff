@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ألـدعـم الفـنـي</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            /* تغيير الخلفية هنا */
+            background: url('https://cdn.discordapp.com/attachments/1355278507722412234/1357434669385125899/wp4421387.webp?ex=67f0310d&is=67eedf8d&hm=d232dc9320eb37a849c4be2ade53b5b6400bc006e51e5a7d2a1b5f97cf97eb4f&') no-repeat center center/cover; /* استبدل بـ new-background.jpg أو رابط آخر */
+            margin: 0;
+            padding: 0;
+            color: white;
+            height: 100vh; /* جعل الجسم يشغل الشاشة بالكامل */
+        }
+        .container {
+            margin-top: 100px; /* زيادة المسافة من أعلى الصفحة */
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px; /* زيادة المسافة داخل الحاوية */
+            border-radius: 15px; /* جعل الحواف مدورة أكثر */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* الظل حول الحاوية */
+            max-width: 600px;
+            width: 100%; /* جعل الحاوية تأخذ 100% من العرض المتاح */
+            margin: auto;
+        }
+        .header {
+            font-size: 26px; /* جعل العنوان أكبر */
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 12px; /* زيادة المسافة الداخلية للمربعات */
+            margin: 12px 0; /* زيادة المسافة بين العناصر */
+            border-radius: 8px; /* زيادة انحناء الحواف */
+            border: 1px solid #ff9800;
+            background-color: rgba(0, 0, 0, 0.2);
+            color: white;
+            font-size: 16px; /* تغيير حجم الخط داخل المربعات */
+        }
+        button {
+            background-color: #ff9800;
+            color: white;
+            padding: 15px 30px; /* جعل الزر أكبر */
+            border: none;
+            border-radius: 8px; /* زيادة انحناء الزر */
+            cursor: pointer;
+            font-size: 18px; /* تغيير حجم الخط في الزر */
+            width: 100%; /* جعل الزر يشغل كامل العرض */
+            margin-top: 20px; /* إضافة مسافة بين الزر والمربعات */
+        }
+        button:hover {
+            background-color: #e68900;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://j.top4top.io/p_3378ad7nw1.png" alt="شعار الموقع" style="width: 70px; height: 70px; border-radius: 50%; margin-bottom: 10px;">
+            <h2>ألـدعـم الفـنـي</h2>
+        </div>
+        
+        <form id="supportForm">
+            <input type="text" id="userName" placeholder="اسمك" required>
+            <textarea id="userIssue" rows="6" placeholder="أدخل المشكلة التي تواجهها" required></textarea>
+            <button type="submit">إرسال</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('supportForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const userName = document.getElementById('userName').value;
+            const userIssue = document.getElementById('userIssue').value;
+            
+            const webhookURL = 'https://cdn.discordapp.com/attachments/1355278507722412234/1357434669385125899/wp4421387.webp?ex=67f0310d&is=67eedf8d&hm=d232dc9320eb37a849c4be2ade53b5b6400bc006e51e5a7d2a1b5f97cf97eb4f&'; // استبدل برابط Webhook الخاص بك
+            
+            const payload = {
+                username: "دعم فني - الموقع",
+                avatar_url: "logo.png",
+                embeds: [
+                    {
+                        title: "مشكلة جديدة",
+                        description: `**اسم المستخدم**: ${userName}\n**المشكلة**: ${userIssue}`,
+                        color: 15158332,
+                        footer: {
+                            text: "تاريخ الإرسال"
+                        }
+                    }
+                ]
+            };
+
+            fetch(webhookURL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('تم إرسال المشكلة بنجاح!');
+                    document.getElementById('supportForm').reset();
+                } else {
+                    alert('حدث خطأ أثناء إرسال المشكلة.');
+                }
+            })
+            .catch(error => {
+                alert('حدث خطأ أثناء الاتصال بالخادم.');
+            });
+        });
+    </script>
+</body>
+</html>

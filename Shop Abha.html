@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مـتـجـر أبـهـا</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: url('https://cdn.discordapp.com/attachments/1355278507722412234/1357434669385125899/wp4421387.webp?ex=67f0310d&is=67eedf8d&hm=d232dc9320eb37a849c4be2ade53b5b6400bc006e51e5a7d2a1b5f97cf97eb4f&') no-repeat center center/cover;
+            margin: 0;
+            padding: 0;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            margin-top: 50px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .shop {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            max-width: 900px;
+        }
+        .product {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+            text-align: center;
+            width: 200px;
+        }
+        .product img {
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+            border: 3px solid #ff9800;
+        }
+        .product p {
+            margin-top: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffcc80;
+        }
+        .price {
+            display: none;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            color: #fff;
+        }
+        .buy-btn, .paypal-btn {
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+        .buy-btn:hover, .paypal-btn:hover {
+            background-color: #e68900;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>مـتـجـر أبـهـا</h1>
+        <div class="shop">
+            <script>
+                const paypalEmail = "ntelmhalantel@gmail.com"; // استبدلها ببريدك في PayPal
+                const products = [
+                    {name: "المنتج الأول", price: "100 جنيه | 50 ريال | 3 دولار", img: "https://h.top4top.io/p_3380npnec1.png", usd: 3},
+                    {name: "المنتج الثاني", price: "150 جنيه | 55 ريال | 6 دولار", img: "https://i.top4top.io/p_3380fxhhg2.png", usd: 6},
+                    {name: "المنتج الثالث", price: "200 جنيه | 60 ريال | 4.5 دولار", img: "https://j.top4top.io/p_3380vd0al3.png", usd: 4.5},
+                    {name: "المنتج الرابع", price: "250 جنيه | 65 ريال | 7.5 دولار", img: "https://k.top4top.io/p_3380oooax4.png", usd: 7.5},
+                    {name: "المنتج الخامس", price: "300 جنيه | 70 ريال | 9 دولار", img: "https://a.top4top.io/p_3380ja1te6.png", usd: 9},
+                    {name: "المنتج السادس", price: "150 جنيه | 75 ريال | 3.5 دولار", img: "https://l.top4top.io/p_3380e19305.png", usd: 3.5},
+                    {name: "المنتج السابع", price: "180 جنيه | 80 ريال | 5.5 دولار", img: "https://g.top4top.io/p_3380c1ga61.png", usd: 5.5},
+                    {name: "المنتج الثامن", price: "220 جنيه | 85 ريال | 6.5 دولار", img: "https://h.top4top.io/p_3380cop4s2.png", usd: 6.5},
+                    {name: "المنتج التاسع", price: "280 جنيه | 90 ريال | 8.5 دولار", img: "https://cdn.discordapp.com/attachments/1347663707160707143/1357141068168036532/83bc6b-122.webp?ex=67efc85d&is=67ee76dd&hm=569be4aeb0c481ff7fbd4c34fdc2c4835f1dc6d03e6d2e53c9b0ed486cf8d770&", usd: 8.5},
+                    {name: "المنتج العاشر", price: "320 جنيه | 95 ريال | 10 دولار", img: "https://cdn.discordapp.com/attachments/1347663707160707143/1357143547110887465/cba902-sem-t--tulo-png_6b4a9.webp?ex=67efcaac&is=67ee792c&hm=04d4bb113352d660c12d81de4b870dd2c43c84519d98c61cb1bc6c6de242460b&", usd: 10},
+                ];
+
+                products.forEach((product, index) => {
+                    document.write(`
+                        <div class="product">
+                            <img src="${product.img}" alt="${product.name}">
+                            <p>${product.name}</p>
+                            <button class="buy-btn" onclick="showPrice('price${index}')">عرض السعر</button>
+                            <div class="price" id="price${index}">${product.price}</div>
+                            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+                                <input type="hidden" name="cmd" value="_xclick">
+                                <input type="hidden" name="business" value="${paypalEmail}">
+                                <input type="hidden" name="item_name" value="${product.name}">
+                                <input type="hidden" name="amount" value="${product.usd}">
+                                <input type="hidden" name="currency_code" value="USD">
+                                <input type="submit" class="paypal-btn" value="شراء عبر PayPal">
+                            </form>
+                        </div>
+                    `);
+                });
+            </script>
+        </div>
+    </div>
+    <script>
+        function showPrice(id) {
+            let priceDiv = document.getElementById(id);
+            if (priceDiv.style.display === "none" || priceDiv.style.display === "") {
+                priceDiv.style.display = "block";
+            } else {
+                priceDiv.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
